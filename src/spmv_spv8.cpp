@@ -10,9 +10,8 @@
 #include <queue>
 #include <vector>
 #include <unordered_map>
-#include "unistd.h"
+#include <unistd.h>
 #include "mkl.h"
-#include "mkl_spblas.h"
 #include "utility.hpp"
 using namespace std;
 using namespace chrono;
@@ -283,7 +282,7 @@ int main(int argc, char *argv[]) {
   }
   auto end = high_resolution_clock::now();
   auto duration = duration_cast<microseconds>(end - begin);
-  printf("%lf,", double(duration.count()) / 1000 / loop_count);
+  printf("%lf\n", double(duration.count()) / 1000 / loop_count);
 
   destroy_matrix(mat);
   return 0;
